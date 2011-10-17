@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Html5 shoucast player test</title>
+	<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="add-on/jquery.jplayer.inspector.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(document).ready(function(){
+
+		$("#jquery_jplayer_1").jPlayer({
+			ready: function (event) {
+				$(this).jPlayer("setMedia", {
+					mp3:"http://mp3-vr-128.as34763.net/;stream/1"
+				});
+			},
+			swfPath: ".",
+			supplied: "mp3",
+			wmode: "window"
+		});
+
+		$("#jplayer_inspector").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
+		$('#play').click(function(ev){ev.preventDefault();$("#jquery_jplayer_1").jPlayer("play");});
+		$('#stop').click(function(ev){ev.preventDefault();$("#jquery_jplayer_1").jPlayer("pause");});
+	});
+	//]]>
+	</script>
+</head>
+<body>
+	<section>
+	<h1>Audio tag with internet radio test</h1>
+		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="jplayer_inspector"></div>
+		<a id="play" href="#play">Play</a>
+		<a id="stop" href="#stop">Stop</a>
+	</section>
+</body>
+</html>
